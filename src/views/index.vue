@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 import Header from '@/components/Header'
 import Nav from '@/components/Nav'
 import Main from '@/components/Main'
@@ -72,6 +74,15 @@ export default {
   mounted() {
     this.category = this.categories[0]
     this.menus = this.MenusOfCategories[0].menus;
+
+    axios.get('https://jsonplaceholder.typicode.com/users/')
+        .then(function(response) {
+            console.log(response);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    
   }
 }
 </script>
